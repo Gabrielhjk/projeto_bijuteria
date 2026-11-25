@@ -3,7 +3,7 @@ from models.production_historic import production_historic
 from sqlalchemy import Enum, DateTime, ForeignKey
 from datetime import datetime
 from zoneinfo import ZoneInfo
-from ..db.enums import status
+from ..db.enums.status import statusEnum
 from ..db import Base
 from typing import List
 
@@ -16,7 +16,7 @@ class production(Base):
     product_id: Mapped[int] = mapped_column(ForeignKey("products.id"))
     current_stage_id: Mapped[int] = mapped_column(ForeignKey("stages.id"))
     amount: Mapped[int]
-    status: Mapped[Enum] = mapped_column(Enum(status))
+    status: Mapped[Enum] = mapped_column(Enum(statusEnum))
     created_at: Mapped[DateTime] = mapped_column(DateTime(timezone=True), datetime.now(zone_info))
     updated_at: Mapped[DateTime] = mapped_column(DateTime(timezone=True), datetime.now(zone_info))
     completion_date: Mapped[DateTime] = mapped_column(DateTime(timezone=True), datetime.now(zone_info))
