@@ -1,0 +1,24 @@
+from sqlalchemy.orm import Mapped, mapped_column, relationship
+from models.production_historic import production_historic
+from sqlalchemy import Enum, DateTime, ForeignKey
+from datetime import datetime
+from zoneinfo import ZoneInfo
+from ..db.enums import status
+from ..db import Base
+from typing import List
+
+zone_info = ZoneInfo("America/Sao_Paulo")
+
+class production(Base):
+    __tablename__ = "production"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    product_id: Mapped[int] = mapped_column(ForeignKey("products.id"))
+    current_stage_id: Mapped[int] = mapped_column(ForeignKey("stages.id"))
+    amount: Mapped[int]
+    status: Mapped[Enum] = mapped_column(Enum(status))
+    created_at: Mapped[DateTime] = mapped_column(DateTime(timezone=True), datetime.now(zone_info))
+    updated_at: Mapped[DateTime] = mapped_column(DateTime(timezone=True), datetime.now(zone_info))
+    completion_date: Mapped[DateTime] = mapped_column(DateTime(timezone=True), datetime.now(zone_info))
+
+    productions_historic: Mapped[List["production_historic"]] = relationship()
