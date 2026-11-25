@@ -12,6 +12,6 @@ class users(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column(String(50))
     email: Mapped[str] = mapped_column(String(120), unique=True)
-    senha: Mapped[str]
+    password: Mapped[str]
     created_at: Mapped[DateTime] = mapped_column(DateTime(timezone=True), datetime.now(zone_info))
     updated_at: Mapped[DateTime] = mapped_column(DateTime(timezone=True), datetime.now(zone_info))
