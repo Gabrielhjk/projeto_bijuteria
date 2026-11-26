@@ -1,7 +1,7 @@
 from pydantic import BaseModel, EmailStr
 from datetime import datetime
 
-class userResponseDto(BaseModel):
+class UserResponseDto(BaseModel):
     name: str
     email: EmailStr
     created_at: datetime

@@ -6,7 +6,7 @@ from ..db import Base
 
 zone_info = ZoneInfo("America/Sao_Paulo")
 
-class users(Base):
+class Users(Base):
     __tablename__ = "user"
 
     id: Mapped[int] = mapped_column(primary_key=True)

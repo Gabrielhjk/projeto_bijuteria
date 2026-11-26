@@ -6,7 +6,7 @@ from ..db import Base
 
 zone_info = ZoneInfo("America/Sao_Paulo")
 
-class production_historic(Base):
+class ProductionHistoric(Base):
     __tablename__ = "production_historic"
 
     id: Mapped[int] = mapped_column(primary_key=True)

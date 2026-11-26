@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import String, Boolean, DateTime
-from models.production import production
+from models.production import Production
 from datetime import datetime
 from zoneinfo import ZoneInfo
 from nanoid import generate
@@ -9,7 +9,7 @@ from typing import List
 
 zone_info = ZoneInfo("America/Sao_Paulo")
 
-class products(Base):
+class Products(Base):
     __tablename__ = "products"
 
     id: Mapped[int] = mapped_column(primary_key=True)
@@ -20,4 +20,4 @@ class products(Base):
     created_at: Mapped[DateTime] = mapped_column(DateTime(timezone=True), datetime.now(zone_info))
     updated_at: Mapped[DateTime] = mapped_column(DateTime(timezone=True), datetime.now(zone_info))
 
-    productions: Mapped[List["production"]] = relationship()
+    productions: Mapped[List["Production"]] = relationship()

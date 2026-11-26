@@ -1,4 +1,4 @@
 from pydantic import BaseModel
 
-class stageUpdateDto(BaseModel):
+class StageUpdateDto(BaseModel):
     stage: str

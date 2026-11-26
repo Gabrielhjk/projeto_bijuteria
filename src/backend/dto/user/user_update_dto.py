@@ -1,7 +1,7 @@
 from pydantic import BaseModel, EmailStr
 from datetime import datetime
 
-class userUpdateDto(BaseModel):
+class UserUpdateDto(BaseModel):
     name: str
     email: EmailStr
     password: str

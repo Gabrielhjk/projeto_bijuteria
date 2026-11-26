@@ -1,7 +1,7 @@
 from pydantic import BaseModel, EmailStr
 from datetime import datetime
 
-class userRequestDto(BaseModel):
+class UserRequestDto(BaseModel):
     id: int
     name: str
     email: EmailStr

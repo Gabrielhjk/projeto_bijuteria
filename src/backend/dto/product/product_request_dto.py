@@ -1,7 +1,7 @@
 from sqlalchemy import Boolean, DateTime
 from pydantic import BaseModel
 
-class productRequestDto(BaseModel):
+class ProductRequestDto(BaseModel):
     id: int
     product_name: str
     product_code: str
